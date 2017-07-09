@@ -16,16 +16,13 @@ public class BusType {
     @Id
     @Getter
     @Setter
-    @Column(name = "bus_type_id")
-    String id;
-
-    @Getter
-    @Setter
     @Column(name = "bus_type")
+    private
     String type;
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "busType",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "busType", cascade = CascadeType.ALL)
+    private
     Bus bus;
 }

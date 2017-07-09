@@ -18,20 +18,26 @@ public class Contact {
     @Getter
     @Setter
     @Column(name = "mobile_no")
+    private
     Integer mobileNo;
 
     @Getter
     @Setter
     @Column(name = "email")
+    private
     String email;
 
     @Getter
     @Setter
     @Column(name = "boarding_point")
+    private
     String boardingPoint;
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "contact",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
+    private
     Passenger passenger;
+
+
 }

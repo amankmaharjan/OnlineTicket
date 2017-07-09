@@ -1,8 +1,6 @@
 package com.example.onlineTicket.service;
 
-import com.example.onlineTicket.domain.Bus;
 import com.example.onlineTicket.domain.Seat;
-import com.example.onlineTicket.repository.BusRepository;
 import com.example.onlineTicket.repository.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +16,12 @@ import java.util.List;
 public class SeatService {
     @Autowired
     SeatRepository seatRepository;
-    public void insert (Seat seat){
+
+    public void insert(Seat seat) {
         seatRepository.save(seat);
     }
-    public List<Seat> findAll(){
+
+    public List<Seat> findAll() {
         return seatRepository.findAll();
     }
 

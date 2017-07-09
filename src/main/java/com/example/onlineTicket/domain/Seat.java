@@ -17,15 +17,19 @@ public class Seat {
     @Getter
     @Setter
     @Column(name = "seat_name")
+    private
     String seatName;
 
     @Getter
     @Setter
     @Column(name = "status")
+    private
     Boolean status;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @Getter
     @Setter
+    private
     Bus bus;
+
 }

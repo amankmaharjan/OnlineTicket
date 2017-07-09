@@ -18,31 +18,39 @@ public class Bus {
     @Column(name = "bus_no")
     @Getter
     @Setter
+    private
     Integer busNo;
 
     @Getter
     @Setter
     @OneToOne(cascade = CascadeType.ALL)
+    private
     BusType busType;
 
     @Getter
     @Setter
     @Column(name = "services")
+    private
     String services;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @Getter
     @Setter
+    private
     List<BusTime> busTimes;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @Getter
     @Setter
+    private
     Route route;
 
     @Getter
     @Setter
     @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
+    private
     List<Seat>seatList;
+
+
 }
 

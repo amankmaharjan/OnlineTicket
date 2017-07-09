@@ -1,8 +1,6 @@
 package com.example.onlineTicket.service;
 
-import com.example.onlineTicket.domain.Bus;
 import com.example.onlineTicket.domain.BusType;
-import com.example.onlineTicket.repository.BusRepository;
 import com.example.onlineTicket.repository.BusTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,6 @@ public class BusTypeService {
     public List<BusType> findAll() {
         return busTypeRepository.findAll();
     }
-
-
 
 }
 

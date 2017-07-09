@@ -3,6 +3,7 @@ package com.example.onlineTicket.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,22 +18,27 @@ public class BusTime {
     @Id
     @Getter
     @Setter
-    @Column(name = "time_Id")
+    @GenericGenerator(name = "sequence_time_id", strategy = "com.example.onlineTicket.config.generator.TimeIdGenerator")
+    @GeneratedValue(generator = "sequence_time_id")
+    @Column(name = "time_id")
+    private
     String timeId;
 
     @Getter
     @Setter
-    @Column(name = "arrivalTime")
+    @Column(name = "arrival_time")
+    private
     String arrivalTime;
 
     @Getter
     @Setter
-    @Column(name = "departure_Time")
+    @Column(name = "departure_time")
+    private
     String departureTime;
 
     @Getter
     @Setter
-    @ManyToMany(mappedBy = "busTimes",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "busTimes", cascade = CascadeType.ALL)
+    private
     List<Bus> busList;
-
 }

@@ -1,32 +1,25 @@
 package com.example.onlineTicket.config.generator;
 
-/**
- * Created by aman on 7/9/17.
- */
+import java.io.Serializable;
+import java.sql.*;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-public class PassengerIdGenerator implements IdentifierGenerator {
+public class RouteIdGenerator implements IdentifierGenerator {
 
     @Override
     public Serializable generate(SessionImplementor session, Object object)
             throws HibernateException {
 
-        String prefix = "pass";
+        String prefix = "Route";
         Connection connection = session.connection();
 
         try {
             Statement statement = connection.createStatement();
 
-            ResultSet rs = statement.executeQuery("select count(pass_Id) as Id from onlineTicket.passenger");
+            ResultSet rs = statement.executeQuery("select count(route_id) as Id from onlineTicket.route");
 
             if (rs.next()) {
                 int id = rs.getInt(1) + 101;
