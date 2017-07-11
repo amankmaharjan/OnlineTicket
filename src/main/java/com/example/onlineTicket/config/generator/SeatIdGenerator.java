@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by aman on 7/11/17.
@@ -21,22 +23,8 @@ public class SeatIdGenerator implements IdentifierGenerator {
         String prefix = "seat";
         Connection connection = session.connection();
 
-        try {
-            Statement statement = connection.createStatement();
-
-            ResultSet rs = statement.executeQuery("select count(seat_id) as Id from onlineTicket.seat");
-
-            if (rs.next()) {
-                int id = rs.getInt(1) + 101;
-                String generatedId = prefix + new Integer(id).toString();
-                System.out.println("Generated Id: " + generatedId);
-                return generatedId;
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return null;
+        String uuid = UUID.randomUUID().toString().substring(0,7);
+        return uuid;
     }
 
 }

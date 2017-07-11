@@ -19,9 +19,9 @@ public class Seat {
     @Getter
     @Setter
     @Column(name = "seat_id")
+
     @GenericGenerator(name = "sequence_seat_id", strategy = "com.example.onlineTicket.config.generator.SeatIdGenerator")
     @GeneratedValue(generator = "sequence_seat_id")
-
     String seatId;
     @Getter
     @Setter

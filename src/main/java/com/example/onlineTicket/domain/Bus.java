@@ -33,7 +33,7 @@ public class Bus {
     private
     String services;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     @Getter
     @Setter
     private
