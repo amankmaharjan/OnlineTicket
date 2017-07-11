@@ -45,7 +45,7 @@ public class Route {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private
     List<Bus> busList;
 }

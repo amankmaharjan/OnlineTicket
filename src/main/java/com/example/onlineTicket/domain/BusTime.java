@@ -36,9 +36,9 @@ public class BusTime {
     private
     String departureTime;
 
-    @Getter
-    @Setter
-    @ManyToMany(mappedBy = "busTimes", cascade = CascadeType.ALL)
-    private
-    List<Bus> busList;
+//    @Getter
+//    @Setter
+//    @ManyToMany(mappedBy = "busTimes", cascade = CascadeType.ALL)
+//    private
+//    List<Bus> busList;
 }

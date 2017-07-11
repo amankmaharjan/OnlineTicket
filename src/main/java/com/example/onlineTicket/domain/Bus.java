@@ -23,31 +23,31 @@ public class Bus {
 
     @Getter
     @Setter
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private
     BusType busType;
 
     @Getter
     @Setter
-    @Column(name = "services")
+    @Column(name = "services" )
     private
     String services;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @Getter
     @Setter
     private
     List<BusTime> busTimes;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @Getter
-    @Setter
-    private
-    Route route;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @Getter
+//    @Setter
+//    private
+//    Route route;
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private
     List<Seat>seatList;
 

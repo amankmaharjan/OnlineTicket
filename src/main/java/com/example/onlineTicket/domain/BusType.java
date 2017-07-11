@@ -20,9 +20,9 @@ public class BusType {
     private
     String type;
 
-    @Getter
-    @Setter
-    @OneToOne(mappedBy = "busType", cascade = CascadeType.ALL)
-    private
-    Bus bus;
+//    @Getter
+//    @Setter
+//    @OneToOne(mappedBy = "busType", cascade = CascadeType.ALL)
+//    private
+//    Bus bus;
 }

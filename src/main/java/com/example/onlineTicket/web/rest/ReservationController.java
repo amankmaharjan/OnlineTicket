@@ -20,13 +20,13 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
-    @PostMapping(path = "/passenger/")
+    @PostMapping(path = "/reservation/")
     public ResponseEntity<?> insert(@RequestBody Reservation reservation) {
         reservationService.insert(reservation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/route/")
+    @GetMapping(path = "/reservation/")
     public ResponseEntity<?> getAll() {
         return new ResponseEntity<>(reservationService.findAll(), HttpStatus.OK);
     }

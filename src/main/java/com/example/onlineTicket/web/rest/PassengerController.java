@@ -1,9 +1,7 @@
 package com.example.onlineTicket.web.rest;
 
 import com.example.onlineTicket.domain.Passenger;
-import com.example.onlineTicket.domain.Route;
 import com.example.onlineTicket.service.PassengerService;
-import com.example.onlineTicket.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +24,7 @@ public class PassengerController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/route/")
+    @GetMapping(path = "/passenger/")
     public ResponseEntity<?> getAll() {
         return new ResponseEntity<>(passengerService.findAll(), HttpStatus.OK);
     }

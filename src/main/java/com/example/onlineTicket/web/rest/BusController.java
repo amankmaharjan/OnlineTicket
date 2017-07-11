@@ -5,11 +5,7 @@ import com.example.onlineTicket.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.
-        bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by aman on 7/9/17.
@@ -29,4 +25,11 @@ public class BusController {
     public ResponseEntity<?> getAll() {
         return new ResponseEntity<>(busService.findAll(), HttpStatus.OK);
     }
+
+    @PutMapping(path = "/bus/")
+    public ResponseEntity<?> update(@RequestBody Bus bus) {
+        busService.update(bus);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

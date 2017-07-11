@@ -1,8 +1,10 @@
 package com.example.onlineTicket.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -16,6 +18,13 @@ public class Seat {
     @Id
     @Getter
     @Setter
+    @Column(name = "seat_id")
+    @GenericGenerator(name = "sequence_seat_id", strategy = "com.example.onlineTicket.config.generator.SeatIdGenerator")
+    @GeneratedValue(generator = "sequence_seat_id")
+
+    String seatId;
+    @Getter
+    @Setter
     @Column(name = "seat_name")
     private
     String seatName;
@@ -25,11 +34,10 @@ public class Seat {
     @Column(name = "status")
     private
     Boolean status;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @Getter
-    @Setter
-    private
-    Bus bus;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @Getter
+//    @Setter
+//    private
+//    Bus bus;
 
 }

@@ -1,8 +1,6 @@
 package com.example.onlineTicket.web.rest;
 
-import com.example.onlineTicket.domain.BusTime;
 import com.example.onlineTicket.domain.Seat;
-import com.example.onlineTicket.service.BusTimeService;
 import com.example.onlineTicket.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
