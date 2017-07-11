@@ -3,6 +3,7 @@ package com.example.onlineTicket.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Table(name = "contact")
+@ToString
 public class Contact {
 
     @Id
@@ -33,11 +35,11 @@ public class Contact {
     private
     String boardingPoint;
 
-    @Getter
-    @Setter
-    @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
-    private
-    Passenger passenger;
+//    @Getter
+//    @Setter
+//    @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
+//    private
+//    Passenger passenger;
 
 
 }

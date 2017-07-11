@@ -3,6 +3,7 @@ package com.example.onlineTicket.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "route")
+@ToString
 public class Route {
     @Id
     @Getter
@@ -36,11 +38,11 @@ public class Route {
     private
     String destination;
 
-    @Getter
-    @Setter
-    @OneToOne(mappedBy = "route", cascade = CascadeType.ALL)
-    private
-    Reservation reservation;
+//    @Getter
+//    @Setter
+//    @OneToOne(mappedBy = "route", cascade = CascadeType.ALL)
+//    private
+//    Reservation reservation;
 
 
     @Getter

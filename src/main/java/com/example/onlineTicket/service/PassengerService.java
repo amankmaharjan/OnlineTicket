@@ -1,8 +1,6 @@
 package com.example.onlineTicket.service;
 
-import com.example.onlineTicket.domain.Contact;
 import com.example.onlineTicket.domain.Passenger;
-import com.example.onlineTicket.repository.ContactRepository;
 import com.example.onlineTicket.repository.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

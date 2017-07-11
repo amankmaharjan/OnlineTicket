@@ -3,6 +3,7 @@ package com.example.onlineTicket.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Table(name = "bus_type")
+@ToString
 public class BusType {
     @Id
     @Getter

@@ -14,8 +14,11 @@ public class TicketIdGenerator implements IdentifierGenerator {
     public Serializable generate(SessionImplementor session, Object object)
             throws HibernateException {
 
-        UUID idOne = UUID.randomUUID();
-        return idOne;
+        String prefix = "tick";
+        Connection connection = session.connection();
+
+        String uuid = UUID.randomUUID().toString().substring(0,9);
+        return uuid;
     }
 
 }
