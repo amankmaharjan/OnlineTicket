@@ -25,7 +25,7 @@ public class Bus {
 
     @Getter
     @Setter
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     private
     BusType busType;
 

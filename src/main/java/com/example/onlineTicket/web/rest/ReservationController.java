@@ -1,9 +1,7 @@
 package com.example.onlineTicket.web.rest;
 
-import com.example.onlineTicket.domain.Passenger;
-import com.example.onlineTicket.domain.Reservation;
-import com.example.onlineTicket.service.PassengerService;
 import com.example.onlineTicket.service.ReservationService;
+import com.example.onlineTicket.web.rest.dto.ReservationInputDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +19,9 @@ public class ReservationController {
     ReservationService reservationService;
 
     @PostMapping(path = "/reservation/")
-    public ResponseEntity<?> insert(@RequestBody Reservation reservation) {
-        reservationService.insert(reservation);
+    public ResponseEntity<?> insert(@RequestBody ReservationInputDTO reservationInputDTO) {
+      //  reservationService.insert(reservationInputDTO);
+        System.out.println(reservationInputDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
