@@ -1,13 +1,11 @@
 package com.example.onlineTicket.service;
 
 import com.example.onlineTicket.domain.Bus;
-import com.example.onlineTicket.domain.BusTime;
 import com.example.onlineTicket.domain.BusType;
-import com.example.onlineTicket.domain.Seat;
+import com.example.onlineTicket.domain.Route;
 import com.example.onlineTicket.repository.BusRepository;
-import com.example.onlineTicket.repository.BusTimeRepository;
 import com.example.onlineTicket.repository.BusTypeRepository;
-import com.example.onlineTicket.repository.SeatRepository;
+import com.example.onlineTicket.repository.RouteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,22 +25,15 @@ public class BusService {
     @Autowired
     BusRepository busRepository;
     @Autowired
-    BusTimeRepository busTimeRepository;
-    @Autowired
     BusTypeRepository busTypeRepository;
-    List<BusTime> busTimeList;
+    @Autowired
+    RouteRepository routeRepository;
 
     public void insert(Bus bus) {
-        busTimeList = new LinkedList<>();
-        BusType busType = busTypeRepository.findOne(bus.getBusType().getType());
-
-        for (BusTime busTime : bus.getBusTimes()
-                ) {
-            busTimeList.add(busTimeRepository.findOne(busTime.getTimeId()));
-        }
-
-        bus.setBusTimes(busTimeList);
+        BusType busType = busTypeRepository.findOne(bus.getBusType().getId());
+        Route route = routeRepository.findOne(bus.getRoute().getRouteId());
         bus.setBusType(busType);
+        bus.setRoute(route);
         busRepository.save(bus);
     }
 
@@ -59,8 +50,25 @@ public class BusService {
         }
     }
 
-    public Bus findOneBus(Integer id) {
-        return busRepository.findOne(id);
+    public Bus findOneBus(String busNo) {
+        return busRepository.findOne(busNo);
     }
 
+    public void delete(String busNo) {
+        Bus bus = findOneBus(busNo);
+        if (bus != null) {
+            busRepository.delete(bus);
+        }
+
+    }
+
+    public List<Bus> findByRouteSourceAndDestination(Route route) {
+
+        Route busRoute = routeRepository.findBysourceAndDestination(route.getSource(), route.getDestination());
+        System.out.println(busRoute.toString());
+        if (busRoute != null) {
+            return busRepository.findBusesByRoute(busRoute);
+        }
+        return null;
+    }
 }

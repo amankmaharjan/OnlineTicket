@@ -35,11 +35,4 @@ public class Contact {
     private
     String boardingPoint;
 
-//    @Getter
-//    @Setter
-//    @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
-//    private
-//    Passenger passenger;
-
-
 }

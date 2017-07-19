@@ -37,17 +37,4 @@ public class Route {
     @Column(name = "destination")
     private
     String destination;
-
-//    @Getter
-//    @Setter
-//    @OneToOne(mappedBy = "route", cascade = CascadeType.ALL)
-//    private
-//    Reservation reservation;
-
-
-    @Getter
-    @Setter
-    @OneToMany(cascade = CascadeType.ALL)
-    private
-    List<Bus> busList;
 }

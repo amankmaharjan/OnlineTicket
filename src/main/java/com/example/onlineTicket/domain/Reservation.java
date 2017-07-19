@@ -50,16 +50,9 @@ public class Reservation {
     private
     Bus bus;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
     @Getter
     @Setter
-    private
-    BusTime busTime;
-
-    @Getter
-    @Setter
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private
     List<Seat> seatList;
 }

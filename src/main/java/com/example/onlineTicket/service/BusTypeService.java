@@ -25,5 +25,24 @@ public class BusTypeService {
         return busTypeRepository.findAll();
     }
 
+    public void delete(Integer id) {
+        BusType busType = findOne(id);
+        if (busType != null) {
+            busTypeRepository.delete(id);
+        }
+    }
+
+    public void update(Integer id, BusType busType) {
+        BusType updatedbusType = findOne(id);
+        if (updatedbusType != null) {
+            updatedbusType.setType(busType.getType());
+            busTypeRepository.save(updatedbusType);
+        }
+
+    }
+
+    public BusType findOne(Integer id) {
+        return busTypeRepository.findOne(id);
+    }
 }
 

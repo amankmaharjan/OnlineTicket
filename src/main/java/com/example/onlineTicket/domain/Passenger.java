@@ -42,10 +42,4 @@ public class Passenger {
     @Setter
     private
     Contact contact;
-//    @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
-//    @Getter
-//    @Setter
-//    private
-//    List<Reservation> reservationList;
-
 }

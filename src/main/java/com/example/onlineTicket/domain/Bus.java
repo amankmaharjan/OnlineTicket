@@ -21,38 +21,42 @@ public class Bus {
     @Getter
     @Setter
     private
-    Integer busNo;
+    String busNo;
+
+    @Column(name = "bus_name")
+    @Getter
+    @Setter
+    private
+    String busName;
 
     @Getter
     @Setter
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private
     BusType busType;
 
     @Getter
     @Setter
-    @Column(name = "services" )
+    @Column(name = "services")
     private
     String services;
 
-    @ManyToMany(cascade = CascadeType.ALL)
     @Getter
     @Setter
     private
-    List<BusTime> busTimes;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @Getter
-//    @Setter
-//    private
-//    Route route;
+    @Column(name = "departureTime")
+    String departureTime;
 
     @Getter
     @Setter
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private
-    List<Seat>seatList;
+    List<Seat> seatList;
 
-
+    @Getter
+    @Setter
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private
+    Route route;
 }
 

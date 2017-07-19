@@ -19,17 +19,8 @@ import java.util.List;
 public class RouteService {
     @Autowired
     RouteRepository routeRepository;
-    @Autowired
-    BusRepository busRepository;
-    List<Bus> busList;
 
     public void insert(Route route) {
-        busList = new LinkedList<>();
-        for (Bus bus : route.getBusList()
-                ) {
-            busList.add(busRepository.findOne(bus.getBusNo()));
-        }
-        route.setBusList(busList);
         routeRepository.save(route);
     }
 
@@ -37,5 +28,24 @@ public class RouteService {
         return routeRepository.findAll();
     }
 
+
+    public void delete(String routeId) {
+        Route route = findOne(routeId);
+        if (route != null) {
+            routeRepository.delete(routeId);
+        }
+    }
+
+    public void update(String routeid, Route route) {
+        Route updatedRoute = findOne(routeid);
+        if (updatedRoute != null) {
+            routeRepository.save(updatedRoute);
+        }
+
+    }
+
+    public Route findOne(String routeId) {
+        return routeRepository.findOne(routeId);
+    }
 
 }

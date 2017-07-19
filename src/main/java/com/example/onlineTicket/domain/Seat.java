@@ -36,10 +36,4 @@ public class Seat {
     @Column(name = "status")
     private
     Boolean status;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @Getter
-//    @Setter
-//    private
-//    Bus bus;
-
 }

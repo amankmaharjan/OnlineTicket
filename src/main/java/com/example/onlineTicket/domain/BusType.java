@@ -16,15 +16,15 @@ import javax.persistence.*;
 @ToString
 public class BusType {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
+    @Setter
+    @Column(name = "bus_typeId")
+    private Integer id;
     @Getter
     @Setter
     @Column(name = "bus_type")
     private
     String type;
 
-//    @Getter
-//    @Setter
-//    @OneToOne(mappedBy = "busType", cascade = CascadeType.ALL)
-//    private
-//    Bus bus;
 }

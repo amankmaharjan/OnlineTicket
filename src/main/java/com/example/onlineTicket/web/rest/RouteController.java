@@ -5,10 +5,7 @@ import com.example.onlineTicket.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by aman on 7/9/17.
@@ -27,6 +24,18 @@ public class RouteController {
     @GetMapping(path = "/route/")
     public ResponseEntity<?> getAll() {
         return new ResponseEntity<>(routeService.findAll(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/route/{routeId}")
+    public ResponseEntity<?> delete(@PathVariable String routeId) {
+        routeService.delete(routeId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping(path = "/route/{routeId")
+    public ResponseEntity<?> update(@PathVariable String routeId, @RequestBody Route route) {
+        routeService.update(routeId, route);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
